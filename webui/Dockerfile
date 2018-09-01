@@ -3,10 +3,11 @@ LABEL maintainer Jan Sedlak <jsedlak@redhat.com>, Josef Skladanka <jskladan@redh
 LABEL version="0.2"
 
 RUN zypper ar -f obs://devel:openQA/openSUSE_Leap_42.3 openQA && \
+    zypper ar -f https://download.opensuse.org/repositories/devel:languages:ruby:extensions/openSUSE_Leap_42.3/devel:languages:ruby:extensions.repo && \
     zypper ar -f obs://devel:openQA:Leap:42.3/openSUSE_Leap_42.3 openQA-perl-modules && \
     zypper --gpg-auto-import-keys ref && \
     zypper --non-interactive in ca-certificates-mozilla curl && \
-    zypper --non-interactive in --force-resolution openQA apache2 hostname which w3m
+    zypper --non-interactive in --force-resolution openQA apache2 hostname which w3m ruby2.1-rubygem-sass
 
 
 # setup apache
